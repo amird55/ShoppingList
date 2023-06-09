@@ -1,0 +1,14 @@
+<%- include ("header.ejs") %>
+<%- include ("menu.ejs") %>
+<main>
+    <div id="addform">
+        <form action="" method="post">
+            <label for="name">שם קטגוריה:</label>
+            <input type="text" name="name" id="name" value="<%= item.name %>" />
+            <br>
+            <br>
+            <button>save</button>
+        </form>
+    </div>
+</main>
+<%- include ("footer.ejs") %>
