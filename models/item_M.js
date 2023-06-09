@@ -11,4 +11,4 @@ const dataSchema = new mongoose.Schema({
     }
 })
 
-module.exports = mongoose.model('shopping_categs', dataSchema)
+module.exports = mongoose.model('shopping_items', dataSchema)
