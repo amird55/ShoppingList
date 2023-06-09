@@ -1,0 +1,36 @@
+<%- include ("header.ejs") %>
+<%- include ("menu.ejs") %>
+<main>
+    <div id="addform">
+        <form action="" method="post">
+            <label for="name">שם פריט:</label>
+            <input type="text" name="name" id="name" value="<%= item.name %>" />
+            <br>
+            <label for="catg">שם קטגוריה:</label>
+            <select name="catg" id="catg" onchange="toggleNewCatg(this);">
+                <option value="-1">---בחר קטגוריה---</option>
+                <option value="-10">+ קטגוריה חדשה</option>
+                <% for(let cat of AllCatogeries){ %>
+                    <option value="<%= cat._id %>"><%= cat.name %></option>
+                <% } %>
+            </select>
+            <input type="text" name="new_catg" id="new_catg" value="" />
+            <br>
+            <br>
+            <button>save</button>
+        </form>
+        <script>
+            function toggleNewCatg(el){
+                let target_element=document.getElementById("new_catg");
+                if(el.value == -10){
+                    target_element.style.visibility="visible";
+                } else {
+                    target_element.style.visibility="hidden";
+                    target_element.value="";
+                }
+            }
+            document.getElementById("new_catg").style.visibility="hidden";
+        </script>
+    </div>
+</main>
+<%- include ("footer.ejs") %>

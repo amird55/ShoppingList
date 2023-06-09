@@ -26,6 +26,8 @@ database.once('connected', () => {
 //--- connecting routers ------------------------
 const cats_rtr = require('./routes/cat_R');
 app.use('/C', cats_rtr);
+const items_rtr = require('./routes/item_R');
+app.use('/P', items_rtr);
 
 //------------------------------------------------
 app.listen(port, () => {            //server starts listening for any attempts from a client to connect at port: {port}
