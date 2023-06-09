@@ -14,12 +14,19 @@ router.get('/Add',async (req, res) => {
     });
 });
 router.post('/Add',(req, res) => {
-    const modelData = new itemsModel({
-        name:req.body.name,
-        catg:req.body.catg
-    });
-    modelData.save();
-    res.redirect("/P/List");
+    if(req.body.new_catg !== "") {
+        const catData = new catModel({
+            name: req.body.new_catg
+        });
+        let res=catData.insertOne(catData);
+        console.log(res);
+    }
+    // const modelData = new itemsModel({
+    //     name:req.body.name,
+    //     catg:req.body.catg
+    // });
+    // modelData.save();
+    // res.redirect("/P/List");
 });
 router.get('/List',async (req, res) => {
     let cat_data=await catModel.find();
