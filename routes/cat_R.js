@@ -35,7 +35,10 @@ router.post('/Edit',async (req, res) => {
     let item_data=await catModel.findByIdAndUpdate(req.query.id,modelData);
     res.redirect("/C/List");
 });
-
+router.post('/Delete',async (req, res) => {
+    let item_data=await catModel.findByIdAndDelete(req.body.id);
+    res.redirect("/C/List");
+});
 
 
 
